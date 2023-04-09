@@ -5,32 +5,51 @@ article > *:not(.entry-content),
 
 .entry-content, .block-editor-block-list__layout {
     h1 {
-        @apply text-2xl;
+        @apply text-5xl font-inter text-citybreakteal-500 my-8;
     }
 
     h2 {
-        @apply text-xl;
+        @apply text-4xl font-inter text-citybreakteal-500 my-4;
     }
 
     h3 {
-        @apply text-lg;
+        @apply text-3xl font-inter text-citybreakteal-500 my-4;
+    }
+
+    h4 {
+        @apply text-2xl font-inter text-citybreakteal-500 my-4;
+    }
+
+    h5 {
+        @apply text-2xl font-sourcesanspro;
+    }
+
+    h6 {
+        @apply text-base font-sourcesanspro font-bold;
+    }
+
+    .microcontent h4 {
+        @apply text-white;
     }
 
     p, ul, ol {
         a {
-            @apply text-blue-500 underline;
+            @apply text-citybreakteal-500 underline;
 
             &:hover {
                 @apply no-underline;
             }
         }
 
-        @apply mb-8;
+        @apply mb-4 text-base font-sourcesanspro;
     }
 
     ul:not(.block-editor-block-variation-picker__variations) {
         li {
             @apply list-disc list-inside;
+        }
+        li ul {
+            @apply ml-6;
         }
     }
 
@@ -38,5 +57,100 @@ article > *:not(.entry-content),
         li {
             @apply list-decimal list-inside;
         }
+        li ol {
+            @apply ml-6;
+        }
     }
+
+    .wp-block-buttons {
+        @apply my-4;
+    }
+
+    .wp-block-quote {
+        @apply border-none mx-auto p-0 text-center md:w-2/3; 
+    }   
+
+    .wp-block-quote p {
+        @apply text-3xl font-inter text-citybreakteal-500; 
+    }   
+    .wp-block-quote cite {
+        @apply text-sm font-sourcesanspro text-citybreakteal-300; 
+    }   
+    
 }
+
+/* #Mega Menu Styles
+  if you use sass, convert all this additional css to tailwindcss using the 'hack' @apply for all element.style (css properties)
+[ https://tailwindcss.com/docs/functions-and-directives/#apply ]
+example:
+  .mega-menu {
+  @apply
+  hidden
+  left-0
+  absolute
+  text-left
+  w-full;
+  }
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .mega-menu {
+    display: none;
+    left: 0;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+  }
+
+
+
+  /* #hoverable Class Styles */
+  .hoverable {
+    position: static;
+  }
+
+  .hoverable > a:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+
+  .hoverable:hover .mega-menu {
+    display: block;
+  }
+
+
+  /* #toggle Class Styles */
+
+  .toggleable > label:after {
+    content: "\25BC";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+
+  .toggle-input {
+    display: none;
+  }
+  .toggle-input:not(checked) ~ .mega-menu {
+    display: none;
+  }
+
+  .toggle-input:checked ~ .mega-menu {
+    display: block;
+  }
+
+  .toggle-input:checked + label {
+    color: white;
+    background: rgb(3, 102, 114); /*@apply bg-teal-700 */
+  }
+
+  .toggle-input:checked ~ label:after {
+    content: "\25B2";
+    font-size: 10px;
+    padding-left: 6px;
+    position: relative;
+    top: -1px;
+  }
+

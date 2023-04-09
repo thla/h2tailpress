@@ -12,15 +12,22 @@ module.exports = {
     ],
     theme: {
         container: {
+            center: true,
             padding: {
                 DEFAULT: '1rem',
                 sm: '2rem',
-                lg: '0rem'
+                lg: '4rem',
+                xl: '5rem',
+                '2xl': '6rem',
             },
         },
         extend: {
             colors: tailpress.colorMapper(tailpress.theme('settings.color.palette', theme)),
-            fontSize: tailpress.fontSizeMapper(tailpress.theme('settings.typography.fontSizes', theme))
+            fontSize: tailpress.fontSizeMapper(tailpress.theme('settings.typography.fontSizes', theme)),
+            fontFamily: {
+                'inter': ['"Inter Tight"', 'sans-serif'],
+                'sourcesanspro': ['"Source Sans Pro"', 'sans-serif'],
+            },
         },
         screens: {
             'xs': '480px',
